@@ -1,0 +1,8 @@
+namespace: app
+include:
+    - vendor/*/*/tests
+    - app/modules/*/tests
+paths:
+    log: runtime/logs
+settings:
+    colors: true

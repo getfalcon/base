@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+/**
+ * @author     Hryvinskyi Volodymyr <script@email.ua>
+ * @copyright  Copyright (c) 2018. Hryvinskyi Volodymyr
+ * @version    0.0.1-alpha.0.1
+ */
+
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
+require __DIR__ . '/../app/etc/bootstrap.php';
+
+$config      = require __DIR__ . '/../app/etc/config.php';
+$application = new \falcon\core\console\Application($config['console']);
+$exitCode    = $application->run();
+exit($exitCode);

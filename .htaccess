@@ -1,0 +1,90 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule . index.php
+</IfModule>
+
+AddDefaultCharset Off
+AddType 'text/html; charset=UTF-8' html
+
+<IfModule mod_expires.c>
+    ExpiresDefault "access plus 1 year"
+    ExpiresByType text/html A0
+    ExpiresByType text/plain A0
+</IfModule>
+
+RedirectMatch 403 /\.git
+
+<Files composer.json>
+    <IfVersion < 2.4>
+        order allow,deny
+        deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</Files>
+<Files composer.lock>
+    <IfVersion < 2.4>
+        order allow,deny
+        deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</Files>
+<Files .gitignore>
+    <IfVersion < 2.4>
+        order allow,deny
+        deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</Files>
+<Files .htaccess>
+    <IfVersion < 2.4>
+        order allow,deny
+        deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</Files>
+<Files .bowerrc>
+    <IfVersion < 2.4>
+        order allow,deny
+        deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</Files>
+<Files Vagrantfile>
+    <IfVersion < 2.4>
+        order allow,deny
+        deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</Files>
+<Files codeception.yml>
+    <IfVersion < 2.4>
+        order allow,deny
+        deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</Files>
+
+<IfModule mod_headers.c>
+    Header set X-UA-Compatible "IE=edge"
+    <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+        Header unset X-UA-Compatible
+    </FilesMatch>
+</IfModule>
