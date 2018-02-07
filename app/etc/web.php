@@ -18,7 +18,7 @@ return [
 			'enableAutoLogin' => true,
 		],
 		'errorHandler' => [
-			'errorAction' => 'frontend/site/error',
+            'errorAction' => 'Falcon_Frontend/site/error',
 		],
 		'mailer'       => [
 			'class'            => 'yii\swiftmailer\Mailer',

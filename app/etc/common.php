@@ -13,7 +13,7 @@ return [
 	'basePath'    => $basePath,
 	'runtimePath' => $webRoot . '/runtime',
 	'vendorPath'  => $webRoot . '/vendor',
-	'bootstrap'   => ['\falcon\core\components\Bootstrap'],
+    'bootstrap' => ['\falcon\core\Bootstrap'],
 	'aliases'     => [
 		'@bower' => '@vendor/bower-asset',
 		'@npm'   => '@vendor/npm-asset'
@@ -36,7 +36,11 @@ return [
 					'levels' => ['error', 'warning'],
 				],
 			],
-		]
+        ],
+        'assetManager' => [
+            'class' => 'falcon\core\base\AssetManager',
+            'linkAssets' => YII_ENV_DEV ? true : false,
+        ],
 	],
 	'params'      => [
 		'adminEmail' => 'admin@example.com',
