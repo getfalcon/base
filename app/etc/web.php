@@ -13,10 +13,6 @@ return [
 		'request'      => [
 			'cookieValidationKey' => 'rDqtu6IyDnY--da-AClj1lP_8n_WKGC7',
 		],
-		'user'         => [
-			'identityClass'   => 'app\models\User',
-			'enableAutoLogin' => true,
-		],
 		'errorHandler' => [
             'errorAction' => 'Falcon_Frontend/site/error',
 		],
